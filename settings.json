@@ -1,0 +1,79 @@
+{
+  "apiKeyHelper": "cat ~/.claude/.anthropic-key",
+  "env": {
+    "ANTHROPIC_BEDROCK_BASE_URL": "https://go.apis.huit.harvard.edu/ais-bedrock-llm/v2",
+    "CLAUDE_CODE_ATTRIBUTION_HEADER": 0,
+    "CLAUDE_CODE_USE_BEDROCK": 1,
+    "CLAUDE_CODE_SKIP_BEDROCK_AUTH": 1,
+    "ANTHROPIC_MODEL": "us.anthropic.claude-opus-4-8"
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "proj=$(jq -r '.cwd // \"\"' 2>/dev/null); proj=$(basename \"${proj:-$PWD}\"); curl -s -H \"Title: ${proj:-Claude Code}\" -H \"Click: moshi://\" -d \"Claude finished its turn — your turn\" https://ntfy.sh/jazahn-claude-mac >/dev/null 2>&1 || true",
+            "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook.cjs\"",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "input=$(cat); msg=$(echo \"$input\" | jq -r '.message // \"Claude is waiting for input\"' 2>/dev/null); proj=$(echo \"$input\" | jq -r '.cwd // \"\"' 2>/dev/null); proj=$(basename \"${proj:-$PWD}\"); curl -s -H \"Title: ${proj:-Claude Code}\" -H \"Tags: bell\" -H \"Click: moshi://\" -d \"$msg\" https://ntfy.sh/jazahn-claude-mac >/dev/null 2>&1 || true",
+            "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook.cjs\"",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook.cjs\"",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook-user-prompt.cjs\""
+          }
+        ]
+      }
+    ]
+  }
+}

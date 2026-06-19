@@ -1,0 +1,76 @@
+# ---------------------------------------------------------------------------
+# Whitelist strategy: ignore everything, then re-include the reusable files.
+# This is intentional. The ~/.claude directory is full of secrets, caches,
+# and machine-specific state. It is far safer to opt files IN than to chase
+# down every transient file that should be opted out.
+# ---------------------------------------------------------------------------
+
+# Ignore everything by default
+/*
+
+# --- Re-include the things worth sharing across machines ---
+
+# Repo metadata
+!/.gitignore
+!/README.md
+
+# Global instructions
+!/CLAUDE.md
+
+# Settings: share the sanitized base config, never the secret key file.
+# The API key is read by settings.json's apiKeyHelper from .anthropic-key,
+# which stays gitignored. Share the template instead.
+!/settings.json
+!/.anthropic-key.example
+
+# Reusable building blocks
+!/commands/
+!/skills/
+!/hooks/
+
+# Notification hook scripts (code is shareable; runtime state is not)
+!/claude-notifications/
+/claude-notifications/state.json
+
+# ---------------------------------------------------------------------------
+# Belt-and-suspenders: even if a directory above gets re-included, make sure
+# these never slip in regardless of where they appear.
+# ---------------------------------------------------------------------------
+
+# Secrets / local overrides
+.anthropic-key
+settings.local.json
+settings.json.backup
+*.key
+*.pem
+.env
+.env.*
+
+# Conversation + usage history (often contains pasted secrets, code, PII)
+history.jsonl
+**/*.jsonl
+
+# Caches and transient runtime state
+cache/
+shell-snapshots/
+session-env/
+sessions/
+focus-state/
+file-history/
+ide/
+.last-cleanup
+
+# Project-local transcripts and per-project state
+projects/
+plans/
+
+# Plugin caches (marketplace clones, install counts, etc.)
+plugins/
+
+# Backups (the .claude.json backups embed the API key and full config)
+backups/
+
+# OS / editor noise
+.DS_Store
+*.swp
+*~
