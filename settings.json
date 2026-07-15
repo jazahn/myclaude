@@ -74,6 +74,18 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook.cjs\"",
+            "async": true
+          }
+        ]
+      }
     ]
   }
 }
