@@ -2,14 +2,26 @@
 
 ## Session hygiene / spin-down
 
-I tend to keep a single session running for a long time, often carrying unrelated tasks forward in the same context. This is costly: every turn re-reads the entire accumulated context, so unrelated past work inflates the per-turn token cost (and eventually triggers compaction, which loses fidelity).
+I tend to keep a single session running for a long time, often carrying unrelated
+tasks forward in the same context. This is costly: every turn re-reads the entire
+accumulated context, so unrelated past work inflates the per-turn token cost (and
+eventually triggers compaction, which loses fidelity).
 
-**Watch for topic changes.** When the conversation shifts to a task that is substantially unrelated to the recent work — different goal, different files, a question disconnected from the last stretch — gently remind me, in one line, that I can "spin down" and start a fresh session. Keep it brief and non-naggy; mention it once per topic shift, not every message. Don't interrupt mid-task or for closely related follow-ups — only at genuine boundaries.
+**Watch for topic changes.** When the conversation shifts to a task that is
+substantially unrelated to the recent work — different goal, different files, a
+question disconnected from the last stretch — gently remind me, in one line, that I
+can "spin down" and start a fresh session. Keep it brief and non-naggy; mention it
+once per topic shift, not every message. Don't interrupt mid-task or for closely
+related follow-ups — only at genuine boundaries.
 
 **When I say "spin down"** (or clearly signal I'm wrapping up a thread):
-1. Capture durable, repo-level facts (build/test/run commands, architecture, conventions discovered) into the relevant project `CLAUDE.md`.
-2. Capture decisions, preferences, gotchas, and unfinished-work context into project memory files (with `MEMORY.md` index entries).
-3. Confirm what was saved so I can safely start a new session — the fresh session inherits everything important via CLAUDE.md + memory, but sheds the expensive, irrelevant history.
+1. Capture durable, repo-level facts (build/test/run commands, architecture,
+   conventions discovered) into the relevant project `CLAUDE.md`.
+2. Capture decisions, preferences, gotchas, and unfinished-work context into project
+   memory files (with `MEMORY.md` index entries).
+3. Confirm what was saved so I can safely start a new session — the fresh session
+   inherits everything important via CLAUDE.md + memory, but sheds the expensive,
+   irrelevant history.
 
 
 ## Workflow Orchestration
@@ -62,3 +74,5 @@ I tend to keep a single session running for a long time, often carrying unrelate
 - **Simplicity First**: Make every change as simple as possible. Impact minimal code.
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
 - **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
+
+@~/.claude/memory-routing.md

@@ -16,6 +16,8 @@
 
 # Global instructions
 !/CLAUDE.md
+# Imported by CLAUDE.md (@~/.claude/memory-routing.md)
+!/memory-routing.md
 
 # Settings: share the sanitized base config, never the secret key file.
 # The API key is read by settings.json's apiKeyHelper from .anthropic-key,
