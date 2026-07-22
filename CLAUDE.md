@@ -76,3 +76,4 @@ related follow-ups — only at genuine boundaries.
 - **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
 
 @~/.claude/memory-routing.md
+@~/.claude/spin-down-quiz.md

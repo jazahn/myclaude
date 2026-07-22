@@ -12,12 +12,12 @@
 
 # Repo metadata
 !/.gitignore
-!/README.md
 
-# Global instructions
-!/CLAUDE.md
-# Imported by CLAUDE.md (@~/.claude/memory-routing.md)
-!/memory-routing.md
+# Global instructions + any Markdown includes imported by CLAUDE.md
+# (e.g. memory-routing.md, spin-down-quiz.md). Whitelisting all root-level
+# .md means future includes are shared automatically. Secrets can't slip in
+# here — they're .key/.env/.jsonl and are re-ignored in the section below.
+!/*.md
 
 # Settings: share the sanitized base config, never the secret key file.
 # The API key is read by settings.json's apiKeyHelper from .anthropic-key,
