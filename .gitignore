@@ -25,6 +25,9 @@
 !/settings.json
 !/.anthropic-key.example
 
+# Memories (project-level for the system config project)
+!/memory/
+
 # Reusable building blocks
 !/commands/
 !/skills/
