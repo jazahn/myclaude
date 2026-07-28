@@ -1,0 +1,13 @@
+# Per-machine ntfy notification config, sourced by the hooks in settings.json.
+# Copy to ~/.claude/.ntfy-config, fill in real values, then: chmod 600 ~/.claude/.ntfy-config
+# If .ntfy-config is absent, the notification hooks are a silent no-op on this machine.
+
+# Reserved ntfy.sh topic this machine publishes to (one topic per machine).
+NTFY_TOPIC="jazahn-claude-<machine>"
+
+# ntfy.sh access token with publish permission on the topic above.
+NTFY_TOKEN="tk_..."
+
+# URL opened when tapping the notification (e.g. a terminal deep-link).
+# Leave empty if this machine has no click target.
+NTFY_CLICK=""

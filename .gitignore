@@ -24,6 +24,7 @@
 # which stays gitignored. Share the template instead.
 !/settings.json
 !/.anthropic-key.example
+!/.ntfy-config.example
 
 # Memories (project-level for the system config project)
 !/memory/
@@ -44,6 +45,7 @@
 
 # Secrets / local overrides
 .anthropic-key
+.ntfy-config
 settings.local.json
 settings.json.backup
 *.key

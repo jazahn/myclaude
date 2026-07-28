@@ -15,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "proj=$(jq -r '.cwd // \"\"' 2>/dev/null); proj=$(basename \"${proj:-$PWD}\"); tok=$(cat ~/.claude/.ntfy-token 2>/dev/null); curl -s -H \"Authorization: Bearer $tok\" -H \"Title: ${proj:-Claude Code}\" -H \"Click: moshi://\" -d \"Claude finished its turn — your turn\" https://ntfy.sh/jazahn-claude-mac >/dev/null 2>&1 || true",
+            "command": "[ -f ~/.claude/.ntfy-config ] || exit 0; . ~/.claude/.ntfy-config; proj=$(jq -r '.cwd // \"\"' 2>/dev/null); proj=$(basename \"${proj:-$PWD}\"); curl -s -H \"Authorization: Bearer $NTFY_TOKEN\" -H \"Title: ${proj:-Claude Code}\" -H \"Click: $NTFY_CLICK\" -d \"Claude finished its turn — your turn\" \"https://ntfy.sh/$NTFY_TOPIC\" >/dev/null 2>&1 || true",
             "async": true
           }
         ]
@@ -37,7 +37,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "input=$(cat); msg=$(echo \"$input\" | jq -r '.message // \"Claude is waiting for input\"' 2>/dev/null); proj=$(echo \"$input\" | jq -r '.cwd // \"\"' 2>/dev/null); proj=$(basename \"${proj:-$PWD}\"); tok=$(cat ~/.claude/.ntfy-token 2>/dev/null); curl -s -H \"Authorization: Bearer $tok\" -H \"Title: ${proj:-Claude Code}\" -H \"Tags: bell\" -H \"Click: moshi://\" -d \"$msg\" https://ntfy.sh/jazahn-claude-mac >/dev/null 2>&1 || true",
+            "command": "[ -f ~/.claude/.ntfy-config ] || exit 0; . ~/.claude/.ntfy-config; input=$(cat); msg=$(echo \"$input\" | jq -r '.message // \"Claude is waiting for input\"' 2>/dev/null); proj=$(echo \"$input\" | jq -r '.cwd // \"\"' 2>/dev/null); proj=$(basename \"${proj:-$PWD}\"); curl -s -H \"Authorization: Bearer $NTFY_TOKEN\" -H \"Title: ${proj:-Claude Code}\" -H \"Tags: bell\" -H \"Click: $NTFY_CLICK\" -d \"$msg\" \"https://ntfy.sh/$NTFY_TOPIC\" >/dev/null 2>&1 || true",
             "async": true
           }
         ]
