@@ -42,3 +42,4 @@ related follow-ups — only at genuine boundaries.
 @~/.claude/memory-routing.md
 @~/.claude/spin-down-quiz.md
 @~/.claude/memory/INDEX.md
+@~/.claude/credentials.md

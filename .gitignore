@@ -25,6 +25,7 @@
 !/settings.json
 !/.anthropic-key.example
 !/.ntfy-config.example
+!/.credentials.env.example
 
 # Memories (project-level for the system config project)
 !/memory/
@@ -46,6 +47,7 @@
 # Secrets / local overrides
 .anthropic-key
 .ntfy-config
+.credentials.env
 settings.local.json
 settings.json.backup
 *.key

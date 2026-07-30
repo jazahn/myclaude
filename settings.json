@@ -1,5 +1,10 @@
 {
   "apiKeyHelper": "cat ~/.claude/.anthropic-key",
+  "permissions": {
+    "deny": [
+      "Read(~/.claude/.credentials.env)"
+    ]
+  },
   "env": {
     "ANTHROPIC_BEDROCK_BASE_URL": "https://go.apis.huit.harvard.edu/ais-bedrock-llm/v2",
     "CLAUDE_CODE_ATTRIBUTION_HEADER": 0,
@@ -88,5 +93,6 @@
         ]
       }
     ]
-  }
+  },
+  "model": "us.anthropic.claude-fable-5"
 }
