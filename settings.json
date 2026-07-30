@@ -7,9 +7,9 @@
   },
   "env": {
     "ANTHROPIC_BEDROCK_BASE_URL": "https://go.apis.huit.harvard.edu/ais-bedrock-llm/v2",
-    "CLAUDE_CODE_ATTRIBUTION_HEADER": 0,
-    "CLAUDE_CODE_USE_BEDROCK": 1,
-    "CLAUDE_CODE_SKIP_BEDROCK_AUTH": 1,
+    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
+    "CLAUDE_CODE_USE_BEDROCK": "1",
+    "CLAUDE_CODE_SKIP_BEDROCK_AUTH": "1",
     "ANTHROPIC_MODEL": "us.anthropic.claude-fable-5",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "us.anthropic.claude-opus-4-8"
   },
@@ -30,7 +30,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook.cjs\"",
+            "command": "node \"$HOME/.claude/claude-notifications/hook.cjs\"",
             "async": true
           }
         ]
@@ -52,7 +52,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook.cjs\"",
+            "command": "node \"$HOME/.claude/claude-notifications/hook.cjs\"",
             "async": true
           }
         ]
@@ -64,7 +64,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook.cjs\"",
+            "command": "node \"$HOME/.claude/claude-notifications/hook.cjs\"",
             "async": true
           }
         ]
@@ -76,7 +76,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook-user-prompt.cjs\""
+            "command": "node \"$HOME/.claude/claude-notifications/hook-user-prompt.cjs\""
           }
         ]
       }
@@ -87,7 +87,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook.cjs\"",
+            "command": "node \"$HOME/.claude/claude-notifications/hook.cjs\"",
             "async": true
           }
         ]
