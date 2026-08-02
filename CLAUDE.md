@@ -40,6 +40,7 @@ related follow-ups — only at genuine boundaries.
   to shepherd it.
 
 @~/.claude/memory-routing.md
+@~/.claude/spin-down-tracking.md
 @~/.claude/spin-down-quiz.md
 @~/.claude/memory/INDEX.md
 @~/.claude/credentials.md
