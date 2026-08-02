@@ -1,17 +1,12 @@
 {
-  "apiKeyHelper": "cat ~/.claude/.anthropic-key",
+  "forceLoginOrgUUID": "2d2a3730-1239-4ee7-a034-51714e9e5e3d",
   "permissions": {
     "deny": [
       "Read(~/.claude/.credentials.env)"
     ]
   },
   "env": {
-    "ANTHROPIC_BEDROCK_BASE_URL": "https://go.apis.huit.harvard.edu/ais-bedrock-llm/v2",
-    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
-    "CLAUDE_CODE_USE_BEDROCK": "1",
-    "CLAUDE_CODE_SKIP_BEDROCK_AUTH": "1",
-    "ANTHROPIC_MODEL": "us.anthropic.claude-fable-5",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "us.anthropic.claude-opus-4-8"
+    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0"
   },
   "hooks": {
     "Stop": [
@@ -94,5 +89,5 @@
       }
     ]
   },
-  "model": "us.anthropic.claude-fable-5"
+  "model": "opus[1m]"
 }

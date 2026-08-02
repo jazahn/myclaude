@@ -35,6 +35,10 @@
 !/skills/
 !/hooks/
 
+# Auth profiles for `claude --settings` switching (no secrets: the Bedrock
+# profile's apiKeyHelper reads the gitignored .anthropic-key)
+!/profiles/
+
 # Notification hook scripts (code is shareable; runtime state is not)
 !/claude-notifications/
 /claude-notifications/state.json
