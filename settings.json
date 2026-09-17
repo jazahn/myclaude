@@ -1,13 +1,47 @@
 {
-  "forceLoginOrgUUID": "2d2a3730-1239-4ee7-a034-51714e9e5e3d",
-  "permissions": {
-    "deny": [
-      "Read(~/.claude/.credentials.env)"
-    ]
-  },
   "env": {
     "CLAUDE_CODE_ATTRIBUTION_HEADER": "0"
   },
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "WebSearch",
+      "WebFetch(*)",
+      "Edit(~/.claude/projects/**)",
+      "Write(~/.claude/projects/**)",
+      "mcp__atlassian__atlassianUserInfo",
+      "mcp__atlassian__getAccessibleAtlassianResources",
+      "mcp__atlassian__search",
+      "mcp__atlassian__fetch",
+      "mcp__atlassian__getConfluenceSpaces",
+      "mcp__atlassian__getConfluencePage",
+      "mcp__atlassian__getConfluencePageDescendants",
+      "mcp__atlassian__getPagesInConfluenceSpace",
+      "mcp__atlassian__getConfluencePageFooterComments",
+      "mcp__atlassian__getConfluencePageInlineComments",
+      "mcp__atlassian__getConfluenceCommentChildren",
+      "mcp__atlassian__searchConfluenceUsingCql",
+      "mcp__atlassian__getJiraIssue",
+      "mcp__atlassian__searchJiraIssuesUsingJql",
+      "mcp__atlassian__getVisibleJiraProjects",
+      "mcp__atlassian__getJiraProjectIssueTypesMetadata",
+      "mcp__atlassian__getJiraIssueTypeMetaWithFields",
+      "mcp__atlassian__getTransitionsForJiraIssue",
+      "mcp__atlassian__getJiraIssueRemoteIssueLinks",
+      "mcp__atlassian__getIssueLinkTypes",
+      "mcp__atlassian__lookupJiraAccountId",
+      "mcp__atlassian__getTeamworkGraphContext",
+      "mcp__atlassian__getTeamworkGraphObject",
+      "mcp__atlassian__getCompassComponent",
+      "mcp__atlassian__getCompassComponents",
+      "mcp__atlassian__getCompassCustomFieldDefinitions"
+    ],
+    "deny": [
+      "Read(~/.claude/.credentials.env)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "fable[1m]",
   "hooks": {
     "Stop": [
       {
@@ -25,7 +59,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$HOME/.claude/claude-notifications/hook.cjs\"",
+            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook.cjs\"",
             "async": true
           }
         ]
@@ -47,7 +81,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$HOME/.claude/claude-notifications/hook.cjs\"",
+            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook.cjs\"",
             "async": true
           }
         ]
@@ -59,7 +93,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$HOME/.claude/claude-notifications/hook.cjs\"",
+            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook.cjs\"",
             "async": true
           }
         ]
@@ -71,7 +105,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$HOME/.claude/claude-notifications/hook-user-prompt.cjs\""
+            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook-user-prompt.cjs\""
           }
         ]
       }
@@ -82,12 +116,12 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$HOME/.claude/claude-notifications/hook.cjs\"",
+            "command": "node \"/Users/jazahn/.claude/claude-notifications/hook.cjs\"",
             "async": true
           }
         ]
       }
     ]
   },
-  "model": "opus[1m]"
+  "forceLoginOrgUUID": "2d2a3730-1239-4ee7-a034-51714e9e5e3d"
 }

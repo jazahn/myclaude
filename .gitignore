@@ -14,7 +14,7 @@
 !/.gitignore
 
 # Global instructions + any Markdown includes imported by CLAUDE.md
-# (e.g. memory-routing.md, spin-down-quiz.md). Whitelisting all root-level
+# (e.g. memory-routing.md, credentials.md). Whitelisting all root-level
 # .md means future includes are shared automatically. Secrets can't slip in
 # here — they're .key/.env/.jsonl and are re-ignored in the section below.
 !/*.md

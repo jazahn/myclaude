@@ -14,14 +14,13 @@ can "spin down" and start a fresh session. Keep it brief and non-naggy; mention 
 once per topic shift, not every message. Don't interrupt mid-task or for closely
 related follow-ups — only at genuine boundaries.
 
-**When I say "spin down"** (or clearly signal I'm wrapping up a thread):
-1. Capture durable, repo-level facts (build/test/run commands, architecture,
-   conventions discovered) into the relevant project `CLAUDE.md`.
-2. Capture decisions, preferences, gotchas, and unfinished-work context into project
-   memory files (with `MEMORY.md` index entries).
-3. Confirm what was saved so I can safely start a new session — the fresh session
-   inherits everything important via CLAUDE.md + memory, but sheds the expensive,
-   irrelevant history.
+**When I say "spin down"** (or clearly signal I'm wrapping up a thread), invoke
+the `spin-down` skill. It captures durable facts to CLAUDE.md + memory, suggests
+GitHub/Jira updates, and runs a short comprehension quiz.
+
+**After any significant change** landed without a formal spin-down (a merged
+feature, a multi-file refactor, anything with security implications), offer the
+quiz on its own: invoke `spin-down` with the argument `quiz`.
 
 
 ## Working style
@@ -40,7 +39,5 @@ related follow-ups — only at genuine boundaries.
   to shepherd it.
 
 @~/.claude/memory-routing.md
-@~/.claude/spin-down-tracking.md
-@~/.claude/spin-down-quiz.md
 @~/.claude/memory/INDEX.md
 @~/.claude/credentials.md
