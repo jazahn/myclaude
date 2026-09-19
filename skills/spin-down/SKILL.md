@@ -98,30 +98,8 @@ report "no related issues found" in one line — no question needed.
 
 ## Phase 3 — Comprehension quiz
 
-A lightweight check that the user walks away understanding the major changes,
-the security-relevant decisions, and the parts of the code that would surprise
-a future reader — not an exam.
-
-### Format
-- One `AskUserQuestion` call carrying all questions (tool cap is 4), so the
-  user answers together in the radio-select UI.
-- 3–4 multiple-choice questions, 2–4 options each. One clearly correct; the
-  rest plausible-but-wrong so a guess is informed, not automatic. Scannable in
-  under a minute. Do not add a catch-all option; "Other" is automatic.
-- Every question maps to something that actually happened this session.
-
-### What to quiz on (priority order)
-1. **Security risks** — auth, secrets, permissions, input handling, external
-   calls, destructive operations. Always include one if the session touched
-   any.
-2. **Major changes** — the headline thing(s) built or changed, and where they
-   live.
-3. **Non-obvious decisions or gotchas** — a tradeoff, a constraint worked
-   around, behavior that would surprise a cold reader.
-
-### After the user answers
-Grade in a normal text reply: confirm correct answers briefly, gently correct
-wrong or partial ones with a pointer to the file/line or decision. If something
-important is wrong (especially a security item), flag it plainly — the change
-deserves a closer look before moving on. Collegial tone. If the user skips the
-quiz, drop it without pushing.
+Invoke the `session-quiz` skill (via the Skill tool). It owns the question
+selection, format, and grading. If that skill is not available in this
+environment, fall back to: 3–4 multiple-choice questions in one
+`AskUserQuestion` call, prioritizing security-relevant decisions, then the
+headline change, then non-obvious gotchas; grade briefly in text afterward.

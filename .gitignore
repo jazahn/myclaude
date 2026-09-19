@@ -77,6 +77,9 @@ ide/
 projects/
 plans/
 
+# Synced Skills
+skills/synced/
+
 # Plugin caches (marketplace clones, install counts, etc.)
 plugins/
 

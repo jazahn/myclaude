@@ -20,7 +20,7 @@ GitHub/Jira updates, and runs a short comprehension quiz.
 
 **After any significant change** landed without a formal spin-down (a merged
 feature, a multi-file refactor, anything with security implications), offer the
-quiz on its own: invoke `spin-down` with the argument `quiz`.
+quiz on its own: invoke the `session-quiz` skill.
 
 
 ## Working style
