@@ -1,6 +1,6 @@
 ---
 name: spin-down
-description: Wrap up a long-running session so a fresh one can take over cleanly. Captures durable facts to CLAUDE.md and memory, suggests GitHub/Jira issue updates, then runs a short comprehension quiz. Use when the user says "spin down", "wrap up", "let's close this out", or clearly signals a thread is finished. Pass `quiz` to run only the quiz step (e.g. right after landing a significant change with no formal spin-down).
+description: Wrap up a long-running session so a fresh one can take over cleanly. Captures durable facts to CLAUDE.md and memory, suggests GitHub/Jira issue updates, then runs a short comprehension quiz. Use when the user says "spin down", "wrap up", "let's close this out", or clearly signals a thread is finished. For a quiz alone, use the session-quiz skill instead.
 ---
 
 # Spin down
@@ -8,8 +8,6 @@ description: Wrap up a long-running session so a fresh one can take over cleanly
 Three phases, in order. Do not skip ahead; the capture phase is the reason the
 skill exists. Never post to a tracker or edit an issue without an explicit
 selection in phase 2.
-
-If invoked with the argument `quiz`, skip to phase 3.
 
 ## Phase 1 — Capture
 
