@@ -5,38 +5,15 @@
   "permissions": {
     "allow": [
       "Bash(*)",
+      "Read(~/workshop/**)",
+      "Edit(~/workshop/**)",
       "WebSearch",
       "WebFetch(*)",
       "Edit(~/.claude/projects/**)",
-      "Write(~/.claude/projects/**)",
-      "mcp__atlassian__atlassianUserInfo",
-      "mcp__atlassian__getAccessibleAtlassianResources",
-      "mcp__atlassian__search",
-      "mcp__atlassian__fetch",
-      "mcp__atlassian__getConfluenceSpaces",
-      "mcp__atlassian__getConfluencePage",
-      "mcp__atlassian__getConfluencePageDescendants",
-      "mcp__atlassian__getPagesInConfluenceSpace",
-      "mcp__atlassian__getConfluencePageFooterComments",
-      "mcp__atlassian__getConfluencePageInlineComments",
-      "mcp__atlassian__getConfluenceCommentChildren",
-      "mcp__atlassian__searchConfluenceUsingCql",
-      "mcp__atlassian__getJiraIssue",
-      "mcp__atlassian__searchJiraIssuesUsingJql",
-      "mcp__atlassian__getVisibleJiraProjects",
-      "mcp__atlassian__getJiraProjectIssueTypesMetadata",
-      "mcp__atlassian__getJiraIssueTypeMetaWithFields",
-      "mcp__atlassian__getTransitionsForJiraIssue",
-      "mcp__atlassian__getJiraIssueRemoteIssueLinks",
-      "mcp__atlassian__getIssueLinkTypes",
-      "mcp__atlassian__lookupJiraAccountId",
-      "mcp__atlassian__getTeamworkGraphContext",
-      "mcp__atlassian__getTeamworkGraphObject",
-      "mcp__atlassian__getCompassComponent",
-      "mcp__atlassian__getCompassComponents",
-      "mcp__atlassian__getCompassCustomFieldDefinitions"
+      "mcp__atlassian__*"
     ],
     "deny": [
+      "Read(~/**/.env)",
       "Read(~/.claude/.credentials.env)"
     ],
     "defaultMode": "auto"
@@ -123,5 +100,7 @@
       }
     ]
   },
+  "enabledPlugins": {},
+  "extraKnownMarketplaces": {},
   "forceLoginOrgUUID": "2d2a3730-1239-4ee7-a034-51714e9e5e3d"
 }

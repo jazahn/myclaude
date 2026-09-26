@@ -1,18 +1,24 @@
 ---
 name: huit-github-enterprise-api
-description: gh CLI cannot authenticate to github.huit.harvard.edu (Bearer vs token scheme); use curl. Enterprise org is HUIT, and some repos are live there while the github.com copy is a stale mirror.
+description: github.huit.harvard.edu access — gh OAuth device-flow login works (verified 2026-09-19); the Bearer 401 only hits classic PATs, and both stored PATs were dead as of 2026-09-19. Org is HUIT; some repos are live there while the github.com copy is a stale mirror.
 metadata:
   type: reference
 ---
 
-Working with `github.huit.harvard.edu` (GitHub Enterprise Server 3.17):
+Working with `github.huit.harvard.edu` (GitHub Enterprise Server, 3.19 per its
+API docs URL as of 2026-09-19):
 
-- **`gh` does not work there with a classic PAT.** It sends
-  `Authorization: Bearer <token>`, which this GHES rejects with a 401 for classic
-  PATs. `curl -H "Authorization: token <token>"` against
-  `https://github.huit.harvard.edu/api/v3/...` works with the same token. Don't
-  conclude a token is revoked because `gh auth status` or `gh api` says so — test
-  with curl before reporting it dead.
+- **Use `gh` with an OAuth login, not a PAT.** `gh auth login --hostname
+  github.huit.harvard.edu --web` works, and afterwards `gh api --hostname
+  github.huit.harvard.edu ...` and `GH_HOST=github.huit.harvard.edu gh release
+  download ...` both work (verified 2026-09-19, gh 2.96.0). Reuse the token
+  elsewhere with `gh auth token --hostname github.huit.harvard.edu`.
+- **Classic PATs are the ones that hit the Bearer 401.** `gh` sends
+  `Authorization: Bearer <token>`, which this GHES rejects for classic PATs;
+  `curl -H "Authorization: token <token>"` accepted them. Moot now: on
+  2026-09-19 both `GITHUB_HUIT_PAT` and `GITHUB_PAT` in `.credentials.env`
+  returned `401 Bad credentials` even via curl, so they are revoked or expired.
+  Prefer the `gh` keyring token; only regenerate a PAT if something needs one.
 - **A 404 on write means scope, not absence.** GitHub returns 404 rather than 403
   for unauthorized writes, so `POST .../issues` 404s on a read-only token even
   when `GET` on the same repo returns 200 with `"permissions": {"admin": true}`.

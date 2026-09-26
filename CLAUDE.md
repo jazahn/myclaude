@@ -20,7 +20,8 @@ GitHub/Jira updates, and runs a short comprehension quiz.
 
 **After any significant change** landed without a formal spin-down (a merged
 feature, a multi-file refactor, anything with security implications), offer the
-quiz on its own: invoke the `session-quiz` skill.
+quiz on its own: invoke the `quiz:session` skill (from the HUIT `quiz` plugin,
+synced from claude.ai).
 
 
 ## Working style

@@ -1,6 +1,6 @@
 ---
 name: spin-down
-description: Wrap up a long-running session so a fresh one can take over cleanly. Captures durable facts to CLAUDE.md and memory, suggests GitHub/Jira issue updates, then runs a short comprehension quiz. Use when the user says "spin down", "wrap up", "let's close this out", or clearly signals a thread is finished. For a quiz alone, use the session-quiz skill instead.
+description: Wrap up a long-running session so a fresh one can take over cleanly. Captures durable facts to CLAUDE.md and memory, suggests GitHub/Jira issue updates, then runs a short comprehension quiz. Use when the user says "spin down", "wrap up", "let's close this out", or clearly signals a thread is finished. For a quiz alone, use the quiz:session skill instead.
 ---
 
 # Spin down
@@ -96,8 +96,10 @@ report "no related issues found" in one line — no question needed.
 
 ## Phase 3 — Comprehension quiz
 
-Invoke the `session-quiz` skill (via the Skill tool). It owns the question
-selection, format, and grading. If that skill is not available in this
-environment, fall back to: 3–4 multiple-choice questions in one
+Invoke the `quiz:session` skill (via the Skill tool). It comes from the HUIT
+`quiz` plugin, synced from claude.ai, and owns the question selection, format,
+and grading. If that skill is not available in this environment (e.g. a
+Bedrock-profile session, where claude.ai plugin sync is off), fall back to:
+3–4 multiple-choice questions in one
 `AskUserQuestion` call, prioritizing security-relevant decisions, then the
 headline change, then non-obvious gotchas; grade briefly in text afterward.
