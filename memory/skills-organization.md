@@ -26,14 +26,27 @@ Plugins), and Claude Code syncs them down in the background after the first
 message of an interactive session signed in with the claude.ai subscription
 (random delay, up to ~10 min; a new session is needed to load them). `claude
 plugin list` shows it as `quiz@synced`. The account-level marketplace entry
-still uses the repo's old name `huit-claude-plugins`; GitHub's rename redirect
-covers it, but update it on claude.ai when convenient.
+was corrected from the repo's old name `huit-claude-plugins` to
+`huit-agent-plugins` on 2026-09-26; the re-sync landed the plugin under
+`plugins/synced/<bucket>/quiz~g2/` (the `~gN` suffix is a sync generation).
+`huit-aws` is now also enabled at the account level, so its manual
+`claude plugin install` copy in `plugins/cache/` is redundant.
 
 **Gotcha: sync is off under the Bedrock profile.** Sessions started via the
 `claude-bedrock` alias (`CLAUDE_CODE_USE_BEDROCK=1`) are not signed in with
 claude.ai, so synced plugins and skills never load there. `quiz:session` will
 be missing in those sessions; the spin-down fallback covers it. See
 [[auth-profiles]].
+
+**Done (2026-09-29): `apigee-pull` / `apigee-push` replaced by the `huit-apigee`
+plugin.** The plugin (synced from claude.ai, `huit-agent-plugins` repo) ships
+`huit-apigee:pull`, `huit-apigee:push` and `huit-apigee:status` skills plus a
+bundled gotchas reference and `.apigee.json` per-repo config. The global
+`~/.claude/commands/apigee-*.md` copies were deleted the same day. The drifted
+copy in `aais-maestro-api/.claude/commands/` should also be deleted when that
+repo is next touched. Design history is in harvard-huit/huit-agent-plugins
+issue #5. New sessions pick the skills up; a session started before the sync
+still lists the old command names until restarted.
 
 **Decision: no per-skill git repos.** Shareable skills go into the single
 `huit-agent-plugins` marketplace repo as plugins (this replaced the earlier

@@ -31,9 +31,12 @@ documents only what exists and how to use it.
 | `SPLUNK_API_KEY` | HUIT ATS Splunk API (FAS service account) | Use with `SPLUNK_API_URL` below |
 | `GITHUB_PAT` | github.com — harvard-huit and other SSO-protected orgs | expires 2027-07-01 |
 | `GITHUB_HUIT_PAT` | github.huit.harvard.edu — HUIT org repos | expires 2027-01-01 |
+| `SNOW_PROXY_APIKEY` | ats-snow-proxy (Apigee, prod) — ServiceNow read-only Table API; used by the `snow-kb-policy` skill | prod consumer key |
+| `SNOW_PROXY_APIKEY_DEV` | ats-snow-proxy dev env (harvardtest clone) — optional, for `--env dev` | same value as `DEV_APIKEY` in `~/workshop/ats-snow-proxy/.env` |
 
 ## Non-secret config
 
 ```
 SPLUNK_API_URL=https://go.prod.apis.huit.harvard.edu/ats/splunk/v1/FAS_service_account
+SNOW_PROXY_URL=https://go.prod.apis.huit.harvard.edu/ats-snow-proxy   # default in the skill; dev = go.dev.apis...
 ```

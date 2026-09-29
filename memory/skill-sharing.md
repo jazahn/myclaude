@@ -26,7 +26,13 @@ name wins for `/<name>`.
 - *Plugin + marketplace* (`.claude-plugin/plugin.json`, `marketplace.json` in a
   git repo): for bundles of skills/agents/hooks; can be pre-enabled org-wide via
   managed settings `extraKnownMarketplaces` + `enabledPlugins`. Managed settings
-  cannot push raw skills, only plugins.
+  cannot push raw skills, only plugins. Also enableable at the claude.ai
+  account level (web → Plugins → add marketplace + plugin): it then syncs into
+  `~/.claude/plugins/synced/<bucket>/<plugin>/` (manifest.json with
+  `installationPreference: "available"`, which does load) and shows in
+  `claude plugin list` as `<name>@synced`. This is how the HUIT `quiz` plugin
+  arrives — see [[skills-organization]]. Same auth rules as skill sync (no
+  Bedrock/API-key sessions); needs a new session after the first sync.
 - *Skills API* (`/v1/skills`): API workloads only, not visible in claude.ai/Code.
 
 **Who sees it in Claude Code, and when.** Org-provisioned (Owner upload): enabled
@@ -39,7 +45,9 @@ skipped for API-key / `apiKeyHelper` / `ANTHROPIC_AUTH_TOKEN` / Bedrock sessions
 mode, and `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`. `CLAUDE_CODE_SYNC_SKILLS=1`
 makes non-interactive runs wait for the download. An uploaded skill appears in
 manifest.json with `source: "plugin"` plus a `backingPluginId`. A local skill
-with the same short name shadows the synced one for `/<name>`.
+with the same short name shadows the synced one for `/<name>`. When a skill is
+removed on claude.ai, the sync moves the local copy to
+`~/.claude/skills/.trash/<timestamp>/` (gitignored since 2026-09-26).
 
 **Portable frontmatter (hard rule).** claude.ai upload, the Skills API, and
 `package_skill.py` accept ONLY `name`, `description`, `license`,

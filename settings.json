@@ -101,6 +101,13 @@
     ]
   },
   "enabledPlugins": {},
-  "extraKnownMarketplaces": {},
+  "extraKnownMarketplaces": {
+    "huit-plugin-marketplace": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/harvard-huit/huit-plugin-marketplace.git"
+      }
+    }
+  },
   "forceLoginOrgUUID": "2d2a3730-1239-4ee7-a034-51714e9e5e3d"
 }
