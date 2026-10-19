@@ -100,12 +100,22 @@
       }
     ]
   },
-  "enabledPlugins": {},
+  "enabledPlugins": {
+    "huit-maestro@ats-plugin-marketplace": true,
+    "huit-servicenow-dev@ats-plugin-marketplace": true
+  },
   "extraKnownMarketplaces": {
     "huit-plugin-marketplace": {
       "source": {
         "source": "git",
         "url": "https://github.com/harvard-huit/huit-plugin-marketplace.git"
+      }
+    },
+    "ats-plugin-marketplace": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/harvard-huit/ats-plugin-marketplace.git",
+        "ref": "dev"
       }
     }
   },

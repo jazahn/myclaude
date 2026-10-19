@@ -16,7 +16,7 @@ quiz is shareable and lives in a plugin.** `spin-down` stays here because it
 hardcodes the AAIS Jira cloudId, HUIT GitHub hosts, and `credentials.md`. The
 generic quiz moved out of this repo entirely: the local `skills/session-quiz`
 was deleted on 2026-09-26 and replaced by the `quiz` plugin
-(`/quiz:session`, `/quiz:project`) in the `harvard-huit/huit-agent-plugins`
+(`/quiz:session`, `/quiz:project`) in the `harvard-huit/ats-plugin-marketplace`
 marketplace on github.com. `spin-down` phase 3 and global `CLAUDE.md` both
 invoke `quiz:session`, with an inline text fallback if it is absent.
 
@@ -39,17 +39,17 @@ be missing in those sessions; the spin-down fallback covers it. See
 [[auth-profiles]].
 
 **Done (2026-09-29): `apigee-pull` / `apigee-push` replaced by the `huit-apigee`
-plugin.** The plugin (synced from claude.ai, `huit-agent-plugins` repo) ships
+plugin.** The plugin (synced from claude.ai, `ats-plugin-marketplace` repo, named `huit-agent-plugins` until 2026-09-30) ships
 `huit-apigee:pull`, `huit-apigee:push` and `huit-apigee:status` skills plus a
 bundled gotchas reference and `.apigee.json` per-repo config. The global
 `~/.claude/commands/apigee-*.md` copies were deleted the same day. The drifted
 copy in `aais-maestro-api/.claude/commands/` should also be deleted when that
-repo is next touched. Design history is in harvard-huit/huit-agent-plugins
+repo is next touched. Design history is in harvard-huit/ats-plugin-marketplace
 issue #5. New sessions pick the skills up; a session started before the sync
 still lists the old command names until restarted.
 
 **Decision: no per-skill git repos.** Shareable skills go into the single
-`huit-agent-plugins` marketplace repo as plugins (this replaced the earlier
+`ats-plugin-marketplace` marketplace repo as plugins (this replaced the earlier
 "one bundle repo if ever needed" idea and the zip-upload flow in
 [[skill-sharing]]). Do not create one repo per skill.
 
@@ -65,7 +65,7 @@ uploads, and there is no stale local copy to drift.
 
 **How to apply:** New personal procedures go in `skills/<name>/SKILL.md` with a
 one-line pointer in `CLAUDE.md`, not as `@` imports. New shareable skills go
-in the `huit-agent-plugins` repo as a plugin, after checking for
+in the `ats-plugin-marketplace` repo as a plugin, after checking for
 Harvard-specific hosts/IDs. Reference plugin skills by their namespaced name
 (`quiz:session`), never the bare skill name.
 

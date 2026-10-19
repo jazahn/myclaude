@@ -12,7 +12,10 @@ substantially unrelated to the recent work — different goal, different files, 
 question disconnected from the last stretch — gently remind me, in one line, that I
 can "spin down" and start a fresh session. Keep it brief and non-naggy; mention it
 once per topic shift, not every message. Don't interrupt mid-task or for closely
-related follow-ups — only at genuine boundaries.
+related follow-ups — only at genuine boundaries. "Recent work" means earlier
+turns in *this* conversation only — never the project's git history, CLAUDE.md,
+or memory notes. The first message of a session is never a topic shift, so never
+suggest spinning down on turn one.
 
 **When I say "spin down"** (or clearly signal I'm wrapping up a thread), invoke
 the `spin-down` skill. It captures durable facts to CLAUDE.md + memory, suggests
