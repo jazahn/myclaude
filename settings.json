@@ -10,7 +10,8 @@
       "WebSearch",
       "WebFetch(*)",
       "Edit(~/.claude/projects/**)",
-      "mcp__atlassian__*"
+      "mcp__claude_ai_Atlassian_Rovo__*"
+
     ],
     "deny": [
       "Read(~/**/.env)",
