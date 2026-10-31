@@ -10,7 +10,9 @@
       "WebSearch",
       "WebFetch(*)",
       "Edit(~/.claude/projects/**)",
-      "mcp__claude_ai_Atlassian_Rovo__*"
+      "mcp__claude_ai_Atlassian_Rovo__*",
+      "mcp__claude_ai_Microsoft_365__*",
+      "mcp__plugin_huit-servicenow-dev_service-now__*"
 
     ],
     "deny": [

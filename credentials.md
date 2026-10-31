@@ -32,6 +32,7 @@ documents only what exists and how to use it.
 | `GITHUB_PAT` | github.com — harvard-huit and other SSO-protected orgs | expires 2027-07-01 |
 | `GITHUB_HUIT_PAT` | github.huit.harvard.edu — HUIT org repos | expires 2027-01-01 |
 | `SNOW_PROXY_APIKEY` | ats-snow-proxy (Apigee, prod) — ServiceNow read-only Table API; used by the `snow-kb-policy` skill | prod consumer key |
+| `SNOW_PASSWORD` | ServiceNow `snreadapi` read-only service-account password, for direct Table API calls (`SNOW_AUTH=basic` in aais-pds-utility; the Apigee proxy exists in dev only) | same value as nonprod Apigee KVM `ats-snow-proxy-kvm` entry `apikey` and AWS secret `aais-services-connections-prod` key `snow_password` |
 | `SNOW_PROXY_APIKEY_DEV` | ats-snow-proxy dev env (harvardtest clone) — optional, for `--env dev` | same value as `DEV_APIKEY` in `~/workshop/ats-snow-proxy/.env` |
 
 ## Non-secret config

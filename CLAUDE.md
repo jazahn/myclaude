@@ -42,6 +42,18 @@ synced from claude.ai).
   root cause and prove it works (run the tests, show the output) — don't ask me
   to shepherd it.
 
+## Issue first
+
+Before starting a **new work item** in a repo with a GitHub remote, invoke the
+`issue-first` skill: it looks for a matching GitHub issue and offers to create
+one if there is none. A new work item is a request that will change files, and
+also a mid-session shift to a bug or side task that is not part of the item
+already in progress (a question or a read-only task is not one). The skill
+reads the per-project setting from `CLAUDE.local.md` (`issue-first: on|off`);
+if there is none, it asks once whether to use or ignore it for that project
+and records the answer there. `off` means skip silently. Check once per item,
+not once per message.
+
 @~/.claude/memory-routing.md
 @~/.claude/memory/INDEX.md
 @~/.claude/credentials.md
