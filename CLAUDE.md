@@ -41,8 +41,15 @@ synced from claude.ai).
 - **Bug reports are work orders**: given logs, errors, or failing tests, fix the
   root cause and prove it works (run the tests, show the output) — don't ask me
   to shepherd it.
+- **Tracker items are always id + title.** I don't remember what issue is
+  which by id alone. Any time you mention a Jira issue, GitHub issue/PR, or
+  Trello card — in prose, in a question option, in a commit message draft, in
+  a spin-down summary — write it as `AAIS-123 "Summary text"`, `#45 "Issue
+  title"`, or `"Card name"` (card title is the id). If you only have the id,
+  look the title up first (`getJiraIssue`, `gh issue view`, `issue_read`);
+  never emit a bare id.
 
-## Issue first
+## Issue first, card first
 
 Before starting a **new work item** in a repo with a GitHub remote, invoke the
 `issue-first` skill: it looks for a matching GitHub issue and offers to create
@@ -53,6 +60,16 @@ reads the per-project setting from `CLAUDE.local.md` (`issue-first: on|off`);
 if there is none, it asks once whether to use or ignore it for that project
 and records the answer there. `off` means skip silently. Check once per item,
 not once per message.
+
+The `trello` plugin's `card-first` skill (`/trello:card-first`) is the same
+check against my Trello board, and it applies in any directory, not only git
+repos. Its trigger comes from the plugin's own `SessionStart` hook, which
+reads `card-first: on|off` from `CLAUDE.local.md`, so nothing here needs to
+fire it. When both apply to one item, run both searches first and ask **one**
+combined question (issue and card together); the card's description carries
+the issue URL. When a work item linked to a card lands or wraps up (including
+in `spin-down`), the card update the skill proposes counts as one of the
+tracker updates to suggest, next to GitHub and Jira.
 
 @~/.claude/memory-routing.md
 @~/.claude/memory/INDEX.md

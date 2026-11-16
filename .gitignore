@@ -72,6 +72,8 @@ focus-state/
 file-history/
 ide/
 .last-cleanup
+__pycache__/
+*.pyc
 
 # Project-local transcripts and per-project state
 projects/

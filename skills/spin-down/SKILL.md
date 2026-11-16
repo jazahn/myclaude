@@ -46,9 +46,14 @@ Suggest, never perform unprompted. The two trackers have different audiences:
   authenticated → say "Jira lookup skipped" in one line. Never stall on this
   phase; do whichever half is available.
 
+Every issue or card mentioned anywhere in this phase (question options,
+drafts, the "no related issues" line, the final summary) is written as id
+plus title: `#N "Issue title"`, `AAIS-NNN "Summary"`, `"Card name"`. A bare
+id is never enough; fetch the title if you only have the number.
+
 ### GitHub lookup (inline, cheap)
 1. Check branch names and recent commit messages for `#\d+` refs; if found,
-   `gh issue view <n>` to confirm.
+   `gh issue view <n>` to confirm and capture the title.
 2. Otherwise `gh issue list --assignee @me --state open --limit 25` in the
    working repo and match semantically against the session summary.
 3. For repos on github.huit.harvard.edu, set `GH_HOST`; if auth fails, inject
@@ -69,19 +74,26 @@ branches/commits. Site `at-harvard.atlassian.net`, cloudId
    assignee/watcher clause) scoped to AAIS, looking for a related
    epic/story/task/subtask at any level.
 4. Return ONLY a compact verdict: matched key(s) + summary + type + status +
-   why it matches (or "no match"), plus the related epic if found.
+   why it matches (or "no match"), plus the related epic (key + summary) if
+   found. The summary is mandatory for every key returned; the parent never
+   sees a key without it.
 
 Run the GitHub lookup while the Jira subagent works — they are independent.
 
 ### Present the result
 One `AskUserQuestion`, `multiSelect: true`, options shaped by the verdicts,
 capped at the 4 most relevant:
-- **Comment on GitHub #N** — technical draft as the description/preview.
+- **Comment on #N "Issue title"** — technical draft as the
+  description/preview.
 - **Create new GitHub issue** — drafted title + technical body.
-- **Comment on AAIS-NNN** — high-level draft ending with a link to the GitHub
-  issue/PR.
-- **Create new AAIS story/task** (under the related epic if found) — drafted
-  summary + high-level description, linking to GitHub.
+- **Comment on AAIS-NNN "Summary"** — high-level draft ending with a link to
+  the GitHub issue/PR.
+- **Create new AAIS story/task** (under the related epic, named as
+  `AAIS-NNN "Epic summary"`, if found) — drafted summary + high-level
+  description, linking to GitHub.
+
+Option labels are short, so if `id "title"` would overflow the label, keep
+the id in the label and put the full title in the option description.
 
 With multiSelect the user can pick nothing, so add no filler "no action"
 option. If neither lookup found anything and the work isn't ticket-worthy,

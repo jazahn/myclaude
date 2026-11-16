@@ -140,6 +140,10 @@ the same question and let the user pick or choose "none, create new".
 - One question per item at most. If step 0 already asked (the first time in
   a repo), fold the "create one?" question into the following turn rather
   than asking twice in a row.
+- Every issue mention carries its title: `#12 "add the service-now mcp"`,
+  never a bare `#12`. This includes the match line, the "several matches"
+  list, and any related closed issue you cite. If a branch or commit gave
+  you only a number, fetch the title before reporting it.
 - Never create, reopen, close, or comment without an explicit yes in this
   session.
 - Never edit `CLAUDE.md`, and never commit `CLAUDE.local.md`.

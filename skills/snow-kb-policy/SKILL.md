@@ -25,7 +25,10 @@ python3 ~/.claude/skills/snow-kb-policy/kb_search.py --list-categories "<terms>"
 
 Useful flags: `--like` (AND-match each word instead of full-text; use when full-text returns
 nothing), `--all-kbs`, `--kb <title>`, `--since YYYY-MM-DD`, `--max-chars N`, `--show-query`,
-`--env dev` (the harvardtest clone — stale, and its `u_direct_url`s point at the test instance).
+`--env dev` / `--env stage`. Since 2026-10-27 the **dev** proxy env targets production ServiceNow
+(current data); **test/stage** target the stale harvardtest clone. The default is `prod`, but the
+stored prod key is not yet entitled to the product (401 `InvalidApiKeyForGivenResource`), so
+**use `--env dev` for now**.
 
 Output is JSON: `{env, count, query, results:[{number, short_description, meta_description,
 u_direct_url, kb_knowledge_base, kb_category, published, valid_to, sys_updated_on, text?}]}`.
@@ -46,7 +49,8 @@ u_direct_url, kb_knowledge_base, kb_category, published, valid_to, sys_updated_o
 ## Config and secrets
 
 - Key: `SNOW_PROXY_APIKEY` in `~/.claude/.credentials.env` (prod consumer key for
-  ats-snow-proxy; `SNOW_PROXY_APIKEY_DEV` for `--env dev`). The script reads it itself. Never
+  ats-snow-proxy; `SNOW_PROXY_APIKEY_DEV` for `--env dev` — same value as `DEV_APIKEY` in
+  `~/workshop/ats-snow-proxy/.env`). The script reads it itself. Never
   print the key, never pass it on the command line, never write it anywhere else.
 - If the script exits with "SNOW_PROXY_APIKEY is not set", tell the user to add it to
   `~/.claude/.credentials.env` (documented in `~/.claude/credentials.md`) and stop.

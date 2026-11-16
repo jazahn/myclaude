@@ -28,7 +28,7 @@ documents only what exists and how to use it.
 
 | Key | For | Notes |
 |---|---|---|
-| `SPLUNK_API_KEY` | HUIT ATS Splunk API (FAS service account) | Use with `SPLUNK_API_URL` below |
+| `SPLUNK_API_KEY` | HUIT ATS Splunk API (FAS service account) | Use with `SPLUNK_API_URL` below. Send as the `x-api-key` header; `Authorization: Bearer` gets Apigee `FailedToResolveAPIKey` (2026-11-06) |
 | `GITHUB_PAT` | github.com — harvard-huit and other SSO-protected orgs | expires 2027-07-01 |
 | `GITHUB_HUIT_PAT` | github.huit.harvard.edu — HUIT org repos | expires 2027-01-01 |
 | `SNOW_PROXY_APIKEY` | ats-snow-proxy (Apigee, prod) — ServiceNow read-only Table API; used by the `snow-kb-policy` skill | prod consumer key |

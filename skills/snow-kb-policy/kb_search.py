@@ -142,7 +142,7 @@ def main():
     p.add_argument("--since", help="only articles updated on/after YYYY-MM-DD")
     p.add_argument("--limit", type=int, default=10)
     p.add_argument("--max-chars", type=int, default=6000, help="truncate stripped body to this many chars")
-    p.add_argument("--env", choices=URLS, default=None, help="prod (default), stage, or dev (stale test clone)")
+    p.add_argument("--env", choices=URLS, default=None, help="prod (default; key not yet entitled), dev (targets production ServiceNow since 2026-10-27), stage (stale clone)")
     p.add_argument("--raw", action="store_true", help="print the raw proxy response")
     p.add_argument("--show-query", action="store_true", help="print the sysparm_query to stderr")
     args = p.parse_args()
