@@ -12,7 +12,10 @@
       "Edit(~/.claude/projects/**)",
       "mcp__claude_ai_Atlassian_Rovo__*",
       "mcp__claude_ai_Microsoft_365__*",
-      "mcp__plugin_huit-servicenow-dev_service-now__*"
+      "mcp__plugin_huit-servicenow-dev_service-now__*",
+      "mcp__plugin_huit-github_github-*",
+      "mcp__claude_ai_Atlassian_MCP__*",
+      "mcp__plugin_trello_trello__*"
     ],
     "deny": [
       "Read(~/**/.env)",
@@ -105,7 +108,8 @@
   "enabledPlugins": {
     "huit-maestro@ats-plugin-marketplace": true,
     "huit-servicenow-dev@ats-plugin-marketplace": true,
-    "trello@my-plugin-marketplace": true
+    "trello@my-plugin-marketplace": true,
+    "pr-assistant@my-plugin-marketplace": true
   },
   "extraKnownMarketplaces": {
     "huit-plugin-marketplace": {
