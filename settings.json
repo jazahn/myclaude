@@ -13,7 +13,7 @@
       "mcp__claude_ai_Atlassian_Rovo__*",
       "mcp__claude_ai_Microsoft_365__*",
       "mcp__plugin_huit-servicenow-dev_service-now__*",
-      "mcp__plugin_huit-github_github-*",
+      "mcp__plugin_huit-github_github-huit__*",
       "mcp__claude_ai_Atlassian_MCP__*",
       "mcp__plugin_trello_trello__*"
     ],
